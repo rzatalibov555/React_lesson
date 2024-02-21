@@ -1,7 +1,7 @@
 import React from "react";
 import {Joker} from "./Joker"
 
-export const Country = () =>{
+export const Country = ({children}) =>{
 
 
     let a = 10
@@ -11,7 +11,8 @@ export const Country = () =>{
 
     return(
         <div>
-            <h2>Hi</h2>
+            <span>Person: {children}</span>
+            
             <Joker></Joker>
 
             <h3>Number1: 12 + 12</h3>

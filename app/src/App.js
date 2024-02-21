@@ -16,7 +16,10 @@ class App extends React.Component{
       return(
         <div className='App' style={style}>
           <h1 style={{color:"blue"}}>Hello</h1>
-          <Country></Country>
+          <Country>
+            <span><b>Salam Rza</b></span>
+            <span><b>Salam M</b></span>
+          </Country>
           <Joker></Joker>
         </div>
       )
