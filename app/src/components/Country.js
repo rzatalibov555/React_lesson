@@ -1,17 +1,25 @@
 import React from "react";
 import {Joker} from "./Joker"
 
-export const Country = ({children}) =>{
+export const Country = (props) =>{
 
 
     let a = 10
     let b = 15
 
     let arr = [1,2,3,4,5]
-
+    console.log(props)
     return(
+        
         <div>
-            <span>Person: {children}</span>
+            <hr />
+            <span>Person: <b>{props.country.name}</b></span>
+            <br/>
+            <span>Population: <b>{props.country.population}</b></span>
+            <br/>
+            <h3>Adi: {props.demo}</h3>
+            <hr/>
+
             
             <Joker></Joker>
 
@@ -23,5 +31,6 @@ export const Country = ({children}) =>{
             <h3>{ arr[3] }</h3>
 
         </div>
+      
     )
 }

@@ -16,10 +16,7 @@ class App extends React.Component{
       return(
         <div className='App' style={style}>
           <h1 style={{color:"blue"}}>Hello</h1>
-          <Country>
-            <span><b>Salam Rza</b></span>
-            <span><b>Salam M</b></span>
-          </Country>
+          <Country country = {{name:'Azerbaijan', population: '10 000 000'}} style= {{color:"red", background:"purple"}} demo="Rza" />
           <Joker></Joker>
         </div>
       )

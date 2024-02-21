@@ -1,7 +1,10 @@
 import React from "react";
 
-const Country_names = (props) =>{
+const Country_names = () =>{
     return(
-        <div>Country: { props.name }</div>
+        <div>
+            {/* <h3>Country: { country.name }</h3>
+            <h3>Population: { country.pop }</h3> */}
+        </div>
     )
 }
