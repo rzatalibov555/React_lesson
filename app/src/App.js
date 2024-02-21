@@ -8,17 +8,32 @@ class App extends React.Component {
   
   // https://react.dev/
   // state classlar ucundur. function componentler ucun ise hooklardan istifade olunur.
-  state = {
-    animals: [{ name: "cat", color: "pink" },
-    { name: "dog", color: "black" },
-    { name: "tiger", color: "orange" },
-    { name: "fox", color: "ginger" },
-    { name: "lion", color: "yellow" },
-    ]
+  
+  
+  constructor(props){
+    super(props);
+    this.state = {
+      animals:[ { name: "cat", color: "pink" },
+                { name: "dog", color: "black" },
+                { name: "tiger", color: "orange" },
+                { name: "fox", color: "ginger" },
+                { name: "lion", color: "yellow" },
+              ],
+      title: "Animals",
+
+    }
   }
+  
+  
+  
 
   eventHandler() {
-      console.log("work")
+      // console.log("work")
+      // this.state.title = "New Title" // State bele deyiwilmir reactda
+      this.setState({
+        title: "New Title"
+      })
+      console.log(this.state.title)
   }
 
   eventHandler2(x) {
@@ -34,6 +49,11 @@ class App extends React.Component {
     // console.log(animal)
     return (
       <div>
+
+        <div style={{textAlign:'center'}}>
+          <h1>{this.state.title}</h1>
+        </div>
+
         <div className='App'>
           <Card name={animal[0].name} color={animal[0].color} />
           <Card name={animal[1].name} color={animal[1].color} />
@@ -44,9 +64,9 @@ class App extends React.Component {
 
         <div>
           {/* <button onClick={this.eventHandler}>push</button> */}
-          <button onClick={()=> this.eventHandler2('a')}>push</button>
+          <button onClick={this.eventHandler.bind(this)}>push</button>
 
-          <select onChange= {()=> this.eventHandler2('b')}>
+          <select onChange= {this.eventHandler.bind(this)}>
             <option>1</option>
             <option>2</option>
             <option>3</option>
