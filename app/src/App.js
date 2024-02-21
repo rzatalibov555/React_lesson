@@ -2,7 +2,7 @@ import React from 'react';
 import './App.css';
 // import { Country } from './components/Country';
 // import { Joker } from './components/Joker';
-import { Card } from './components/Cards';
+import { Card } from './components/card/Cards';
 
 class App extends React.Component {
   
