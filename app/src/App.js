@@ -25,6 +25,12 @@ class App extends React.Component {
   }
   
   
+  inputHandler = (e)=>{
+    console.log(e.target.value)
+    this.setState({
+      title: e.target.value
+    })
+  }
   
 
   eventHandler(title) {
@@ -48,7 +54,7 @@ class App extends React.Component {
       <div>
 
         <div style={{textAlign:'center'}}>
-          <h1>{this.state.title}</h1>
+          <h1 onClick={this.inputHandler}>{this.state.title}</h1>
         </div>
 
         <div className='App'>
@@ -63,11 +69,19 @@ class App extends React.Component {
           {/* <button onClick={this.eventHandler}>push</button> */}
           <button onClick={this.eventHandler.bind(this)}>push</button>
 
-          <select onChange= {this.eventHandler.bind(this)}>
+          {/* <select onChange= {this.eventHandler.bind(this)}>
+            <option>1</option>
+            <option>2</option>
+            <option>3</option>
+          </select> */}
+
+          <select onChange= {this.inputHandler}>
             <option>1</option>
             <option>2</option>
             <option>3</option>
           </select>
+
+          <input type='text' onChange={this.inputHandler} />
         </div>
       </div>
 
