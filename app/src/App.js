@@ -27,11 +27,11 @@ class App extends React.Component {
   
   
 
-  eventHandler() {
+  eventHandler(title) {
       // console.log("work")
       // this.state.title = "New Title" // State bele deyiwilmir reactda
       this.setState({
-        title: "New Title"
+        title: title     // eger title: title kimi yazilibsa yani object ile value eynidirse o zaman sadece title yazmaq kifayet edir. 
       })
       console.log(this.state.title)
   }
@@ -40,11 +40,8 @@ class App extends React.Component {
     console.log(x)
   }
 
-
   render() {
     
-
-
     let animal = this.state.animals
     // console.log(animal)
     return (
@@ -55,11 +52,11 @@ class App extends React.Component {
         </div>
 
         <div className='App'>
-          <Card name={animal[0].name} color={animal[0].color} />
-          <Card name={animal[1].name} color={animal[1].color} />
-          <Card name={animal[2].name} color={animal[2].color} />
-          <Card name={animal[3].name} color={animal[3].color} />
-          <Card name={animal[4].name} color={animal[4].color} />
+          <Card name={animal[0].name} color={animal[0].color} click= {this.eventHandler.bind(this)} />
+          <Card name={animal[1].name} color={animal[1].color} click= {this.eventHandler.bind(this)} />
+          <Card name={animal[2].name} color={animal[2].color} click= {this.eventHandler.bind(this)} />
+          <Card name={animal[3].name} color={animal[3].color} click= {this.eventHandler.bind(this)} />
+          <Card name={animal[4].name} color={animal[4].color} click= {this.eventHandler.bind(this)} />
         </div>
 
         <div>
