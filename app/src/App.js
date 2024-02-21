@@ -22,6 +22,8 @@ class App extends React.Component {
                 { name: "crocodile", color: "green" },
               ],
       title: "Animals",
+      showCards: false,
+      showDescription:false
 
     }
   }
@@ -36,16 +38,19 @@ class App extends React.Component {
   
 
   eventHandler(title) {
-      // console.log("work")
-      // this.state.title = "New Title" // State bele deyiwilmir reactda
       this.setState({
-        title: title     // eger title: title kimi yazilibsa yani object ile value eynidirse o zaman sadece title yazmaq kifayet edir. 
+        title: title
       })
       console.log(this.state.title)
   }
 
-  eventHandler2(x) {
-    console.log(x)
+
+  showCardsHandler = () =>{
+    this.setState({showCards: !this.state.showCards})
+  }
+
+  showDescrHandler = () =>{
+    this.setState({showDescription: !this.state.showDescription})
   }
 
   render() {
@@ -60,39 +65,23 @@ class App extends React.Component {
           <h1 onClick={this.inputHandler}>{this.state.title}</h1>
         </div>
 
-        <div className='App'>
 
+      {this.state.showCards ? 
+      
+        <div className='App'>
           {animal.map((item, i) =>{
             return(
-              <Card name={item.name} color={item.color} click= {this.eventHandler.bind(this)} key={i} />
+              <Card key={i} name={item.name} color={item.color} click= {this.eventHandler.bind(this)} show={this.state.showDescription}  />
             )
           })}
-
-          {/* <Card name={animal[0].name} color={animal[0].color} click= {this.eventHandler.bind(this)} />
-          <Card name={animal[1].name} color={animal[1].color} click= {this.eventHandler.bind(this)} />
-          <Card name={animal[2].name} color={animal[2].color} click= {this.eventHandler.bind(this)} />
-          <Card name={animal[3].name} color={animal[3].color} click= {this.eventHandler.bind(this)} />
-          <Card name={animal[4].name} color={animal[4].color} click= {this.eventHandler.bind(this)} /> */}
         </div>
+    
+      : null}
+        
 
         <div>
-          {/* <button onClick={this.eventHandler}>push</button> */}
-          <button onClick={this.eventHandler.bind(this)}>push</button>
-
-          {/* <select onChange= {this.eventHandler.bind(this)}>
-            <option>1</option>
-            <option>2</option>
-            <option>3</option>
-
-          </select> */}
-
-          <select onChange= {this.inputHandler}>
-            <option>1</option>
-            <option>2</option>
-            <option>3</option>
-          </select>
-
-          <input type='text' onChange={this.inputHandler} />
+          <button onClick={this.showCardsHandler}>Show / Hide</button>
+          <button onClick={this.showDescrHandler}>Description</button>
         </div>
       </div>
 
