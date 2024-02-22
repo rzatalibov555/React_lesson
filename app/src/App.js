@@ -4,6 +4,7 @@ import './App.css';
 // import { Joker } from './components/Joker';
 import { Card } from './components/card/Cards';
 import { Expo } from './components/expo/Expo';
+import Footer from './components/footer/Footer';
 
 class App extends React.Component {
   
@@ -99,6 +100,9 @@ class App extends React.Component {
           <button onClick={this.showCardsHandler}>Show / Hide</button>
           <button onClick={this.showDescrHandler}>Description</button>
         </div>
+
+          <Footer/>
+
       </div>
 
 

@@ -1,16 +1,16 @@
-import { Fragment } from "react";
 import React from "react";
+import { Auxillary } from "../hoc/Auxillary";
 
 
 
 
-export const Expo = () => {
+export const Expo = ( ) => {
 
     return(
-        <Fragment>
+        <Auxillary>
             <h2>This is Expo</h2>
             <h3>New React App</h3>
-        </Fragment>
+        </Auxillary>
     )
 
 }
