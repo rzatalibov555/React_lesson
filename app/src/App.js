@@ -55,7 +55,7 @@ class App extends React.Component {
   }
 
 
-
+// ===================================================
   // componentWillUnmount(){
   //   console.log('App componentWillUnmount');
   // }
@@ -63,7 +63,7 @@ class App extends React.Component {
   // componentDidMount(){
   //   console.log('App componentDidMount'); // backende sorgu (request) gonderende, state deyiwende lazim olur.
   // }
-
+// ===================================================
 
 
   render() {
