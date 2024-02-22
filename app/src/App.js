@@ -3,6 +3,7 @@ import './App.css';
 // import { Country } from './components/Country';
 // import { Joker } from './components/Joker';
 import { Card } from './components/card/Cards';
+import { Expo } from './components/expo/Expo';
 
 class App extends React.Component {
   
@@ -53,8 +54,22 @@ class App extends React.Component {
     this.setState({showDescription: !this.state.showDescription})
   }
 
+
+
+  // componentWillUnmount(){
+  //   console.log('App componentWillUnmount');
+  // }
+
+  // componentDidMount(){
+  //   console.log('App componentDidMount'); // backende sorgu (request) gonderende, state deyiwende lazim olur.
+  // }
+
+
+
   render() {
-    
+    // console.log('App render'); // render her refreshde gelir
+
+
     let animal = this.state.animals
 
     // console.log(animal)
@@ -62,6 +77,7 @@ class App extends React.Component {
       <div>
 
         <div style={{textAlign:'center'}}>
+          <Expo/>
           <h1 onClick={this.inputHandler}>{this.state.title}</h1>
         </div>
 
