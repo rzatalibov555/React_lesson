@@ -11,7 +11,8 @@ export const Expo = (props) => {
 
         
         <Auxillary>
-            <Expo2 title={props.title} />
+            {/* <Expo2 title={props.title} /> */}
+            <Expo2 />
             <h2>This is Expo</h2>
             <h3>New React App</h3>
         </Auxillary>

@@ -6,6 +6,9 @@ import { Card } from './components/card/Cards';
 import { Expo } from './components/expo/Expo';
 import Footer from './components/footer/Footer';
 
+
+export const MyContext = React.createContext("")
+
 class App extends React.Component {
   
   // https://react.dev/
@@ -82,10 +85,19 @@ class App extends React.Component {
 
     // console.log(animal)
     return (
+      
+      // MyContext.Provide -> gonderir
+      // MyContext.Consumer -> Qebul edir
+
+      <MyContext.Provider value={{title: this.state.expoTitle}}>
+
+      
+
       <div>
 
         <div style={{textAlign:'center'}}>
-          <Expo title={this.state.expoTitle}/>
+          {/* <Expo title={this.state.expoTitle}/> */}
+          <Expo/>
           {/* <h1 onClick={this.inputHandler}>{this.state.title}</h1> */}
           <h1 ref={this.headRef}>{this.state.title}</h1>
         </div>
@@ -112,7 +124,7 @@ class App extends React.Component {
           <Footer/>
 
       </div>
-
+      </MyContext.Provider>
 
     )
   }
