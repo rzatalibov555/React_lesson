@@ -5,32 +5,33 @@ import './App.css';
 import { Card } from './components/card/Cards';
 import { Expo } from './components/expo/Expo';
 import Footer from './components/footer/Footer';
+import { HookContext } from './context/HookContext';
 
 
-export const MyContext = React.createContext("")
+
 
 class App extends React.Component {
-  
+
   // https://react.dev/
   // state classlar ucundur. function componentler ucun ise hooklardan istifade olunur.
 
   // https://legacy.reactjs.org/docs/getting-started.html   // HOC, prop-types (prop-types cox istiface olunmur. Bunun evezine typescript isletmek lazimdir.)
   // npm install prop-types     // in console
-  
-  constructor(props){
+
+  constructor(props) {
     super(props);
     this.state = {
 
-      animals:[ { name: "cat", color: "pink" },
-                { name: "dog", color: "black" },
-                { name: "tiger", color: "orange" },
-                { name: "fox", color: "ginger" },
-                { name: "lion", color: "yellow" },
-                { name: "crocodile", color: "green" },
-              ],
+      animals: [{ name: "cat", color: "pink" },
+      { name: "dog", color: "black" },
+      { name: "tiger", color: "orange" },
+      { name: "fox", color: "ginger" },
+      { name: "lion", color: "yellow" },
+      { name: "crocodile", color: "green" },
+      ],
       title: "Animals",
       showCards: false,
-      showDescription:false,
+      showDescription: false,
       expoTitle: "This is Expo Title Demo"
 
     }
@@ -38,42 +39,42 @@ class App extends React.Component {
 
     this.headRef = React.createRef()
   }
-  
-  
-  inputHandler = (e)=>{
+
+
+  inputHandler = (e) => {
     console.log(e.target.value)
     this.setState({
       title: e.target.value
     })
   }
-  
+
 
   eventHandler(title) {
-      this.setState({
-        title: title
-      })
-      console.log(this.state.title)
+    this.setState({
+      title: title
+    })
+    console.log(this.state.title)
   }
 
 
-  showCardsHandler = () =>{
-    this.setState({showCards: !this.state.showCards})
+  showCardsHandler = () => {
+    this.setState({ showCards: !this.state.showCards })
   }
 
-  showDescrHandler = () =>{
-    this.setState({showDescription: !this.state.showDescription})
+  showDescrHandler = () => {
+    this.setState({ showDescription: !this.state.showDescription })
   }
 
 
-// ===================================================
+  // ===================================================
   // componentWillUnmount(){
   //   console.log('App componentWillUnmount');
   // }
 
-  componentDidMount(){
+  componentDidMount() {
     console.log(this.headRef.current); // backende sorgu (request) gonderende, state deyiwende lazim olur.
   }
-// ===================================================
+  // ===================================================
 
 
   render() {
@@ -85,46 +86,43 @@ class App extends React.Component {
 
     // console.log(animal)
     return (
-      
-      // MyContext.Provide -> gonderir
-      // MyContext.Consumer -> Qebul edir
 
-      <MyContext.Provider value={{title: this.state.expoTitle}}>
-
-      
-
-      <div>
-
-        <div style={{textAlign:'center'}}>
-          {/* <Expo title={this.state.expoTitle}/> */}
-          <Expo/>
-          {/* <h1 onClick={this.inputHandler}>{this.state.title}</h1> */}
-          <h1 ref={this.headRef}>{this.state.title}</h1>
-        </div>
+      <HookContext.Provider value={{state: this.state}}>
 
 
-      {this.state.showCards ? 
-      
-        <div className='App'>
-          {animal.map((item, i) =>{
-            return(
-              <Card key={i} name={item.name} color={item.color} click= {this.eventHandler.bind(this)} show={this.state.showDescription}  />
-            )
-          })}
-        </div>
-    
-      : null}
-        
 
         <div>
-          <button onClick={this.showCardsHandler}>Show / Hide</button>
-          <button onClick={this.showDescrHandler}>Description</button>
+
+          <div style={{ textAlign: 'center' }}>
+            {/* <Expo title={this.state.expoTitle}/> */}
+            <Expo />
+            {/* <h1 onClick={this.inputHandler}>{this.state.title}</h1> */}
+            <h1 ref={this.headRef}>{this.state.title}</h1>
+          </div>
+
+
+          {this.state.showCards ?
+
+            <div className='App'>
+              {animal.map((item, i) => {
+                return (
+                  <Card key={i} name={item.name} color={item.color} click={this.eventHandler.bind(this)} show={this.state.showDescription} />
+                )
+              })}
+            </div>
+
+            : null}
+
+
+          <div>
+            <button onClick={this.showCardsHandler}>Show / Hide</button>
+            <button onClick={this.showDescrHandler}>Description</button>
+          </div>
+
+          <Footer />
+
         </div>
-
-          <Footer/>
-
-      </div>
-      </MyContext.Provider>
+      </HookContext.Provider>
 
     )
   }

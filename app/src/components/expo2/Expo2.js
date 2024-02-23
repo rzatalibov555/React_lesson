@@ -1,13 +1,17 @@
+import { useContext } from "react";
 import React from "react";
-import { MyContext } from "../../App"
+import { HookContext } from "../../context/HookContext";
+
 
 
 
 export const Expo2 = (props) => {
+
+    const {state} = useContext(HookContext)
+    console.log("Expo2", state)
     return(
-        <MyContext.Consumer>
-            {(value)=> <h3>Expo 2 {value.title}</h3>}
-        </MyContext.Consumer>
+        
+        <h1>Expo 2 - {state.expoTitle}</h1>
         
     )
 }
