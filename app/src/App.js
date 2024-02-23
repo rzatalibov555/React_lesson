@@ -30,6 +30,9 @@ class App extends React.Component {
       showDescription:false
 
     }
+
+
+    this.headRef = React.createRef()
   }
   
   
@@ -63,15 +66,16 @@ class App extends React.Component {
   //   console.log('App componentWillUnmount');
   // }
 
-  // componentDidMount(){
-  //   console.log('App componentDidMount'); // backende sorgu (request) gonderende, state deyiwende lazim olur.
-  // }
+  componentDidMount(){
+    console.log(this.headRef.current); // backende sorgu (request) gonderende, state deyiwende lazim olur.
+  }
 // ===================================================
 
 
   render() {
     // console.log('App render'); // render her refreshde gelir
 
+    console.log(this.headRef)
 
     let animal = this.state.animals
 
@@ -81,7 +85,8 @@ class App extends React.Component {
 
         <div style={{textAlign:'center'}}>
           <Expo/>
-          <h1 onClick={this.inputHandler}>{this.state.title}</h1>
+          {/* <h1 onClick={this.inputHandler}>{this.state.title}</h1> */}
+          <h1 ref={this.headRef}>{this.state.title}</h1>
         </div>
 
 
