@@ -27,7 +27,8 @@ class App extends React.Component {
               ],
       title: "Animals",
       showCards: false,
-      showDescription:false
+      showDescription:false,
+      expoTitle: "This is Expo Title Demo"
 
     }
 
@@ -84,7 +85,7 @@ class App extends React.Component {
       <div>
 
         <div style={{textAlign:'center'}}>
-          <Expo/>
+          <Expo title={this.state.expoTitle}/>
           {/* <h1 onClick={this.inputHandler}>{this.state.title}</h1> */}
           <h1 ref={this.headRef}>{this.state.title}</h1>
         </div>
