@@ -10,7 +10,9 @@ class App extends React.Component {
   
   // https://react.dev/
   // state classlar ucundur. function componentler ucun ise hooklardan istifade olunur.
-  
+
+  // https://legacy.reactjs.org/docs/getting-started.html   // HOC, prop-types (prop-types cox istiface olunmur. Bunun evezine typescript isletmek lazimdir.)
+  // npm install prop-types     // in console
   
   constructor(props){
     super(props);
